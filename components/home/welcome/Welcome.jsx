@@ -33,7 +33,11 @@ const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
         resizeMode="contain"
       />
       <View style={styles.searchContainer}>
-        <SearchBar searchTerm={searchTerm} handleClick={handleClick} />
+        <SearchBar
+          searchTerm={searchTerm}
+          handleClick={handleClick}
+          setSearchTerm={setSearchTerm}
+        />
       </View>
       <View style={styles.tabsContainer}>
         <FlatList

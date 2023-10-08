@@ -4,7 +4,7 @@ import { icons } from '../../../constants';
 
 import styles from './searchBar.style';
 
-const SearchBar = ({ searchTerm, handleClick }) => {
+const SearchBar = ({ searchTerm, handleClick, setSearchTerm }) => {
   return (
     <View style={styles.searchWrapper}>
       <TextInput
