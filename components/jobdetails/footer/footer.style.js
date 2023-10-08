@@ -1,45 +1,31 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
-import { COLORS, FONT, SIZES } from "../../../constants";
+import { COLORS, FONT, SIZES } from '../../../constants';
 
 const styles = StyleSheet.create({
   container: {
-    position: "absolute",
+    position: 'absolute',
     bottom: 0,
     left: 0,
     right: 0,
     padding: SIZES.small,
-    backgroundColor: "#FFF",
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexDirection: "row",
-  },
-  likeBtn: {
-    width: 55,
-    height: 55,
-    borderWidth: 1,
-    borderColor: "#F37453",
-    borderRadius: SIZES.medium,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  likeBtnImage: {
-    width: "40%",
-    height: "40%",
-    tintColor: "#F37453",
+    paddingBottom: SIZES.xxLarge,
+    backgroundColor: '#FFF',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexDirection: 'row',
   },
   applyBtn: {
     flex: 1,
-    backgroundColor: "#FE7654",
-    height: "100%",
-    justifyContent: "center",
-    alignItems: "center",
-    marginLeft: SIZES.medium,
+    backgroundColor: COLORS.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: SIZES.medium,
+    paddingVertical: SIZES.medium,
   },
   applyBtnText: {
     fontSize: SIZES.medium,
-    color: COLORS.white,
+    color: '#FFF',
     fontFamily: FONT.bold,
   },
 });
