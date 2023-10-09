@@ -19,6 +19,7 @@ import {
 } from '../../components';
 import { COLORS, icons, SIZES } from '../../constants';
 import useFetch from '../../hook/useFetch';
+import Placeholder from '../../components/jobdetails/placeholder/Placeholder';
 
 const tabs = ['About', 'Qualifications', 'Responsibilities'];
 
@@ -96,7 +97,7 @@ const JobDetails = () => {
           }
         >
           {isLoading ? (
-            <ActivityIndicator size="large" color={COLORS.primary} />
+            <Placeholder />
           ) : error ? (
             <Text>Something went wrong</Text>
           ) : data.length === 0 ? (
