@@ -15,14 +15,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
   },
-  applyBtn: {
+  applyBtn: (isLoading) => ({
     flex: 1,
-    backgroundColor: COLORS.primary,
+    backgroundColor: isLoading ? COLORS.gray3 : COLORS.primary,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: SIZES.medium,
     paddingVertical: SIZES.medium,
-  },
+  }),
   applyBtnText: {
     fontSize: SIZES.medium,
     color: '#FFF',

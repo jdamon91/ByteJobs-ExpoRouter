@@ -2,14 +2,17 @@ import { View, Text, TouchableOpacity, Linking } from 'react-native';
 
 import styles from './footer.style';
 
-const Footer = ({ url }) => {
+const Footer = ({ url, isLoading }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        style={styles.applyBtn}
+        style={styles.applyBtn(isLoading)}
+        disabled={isLoading}
         onPress={() => Linking.openURL(url)}
       >
-        <Text style={styles.applyBtnText}>Apply for job</Text>
+        <Text style={styles.applyBtnText}>{`${
+          isLoading ? '' : 'Apply for job'
+        }`}</Text>
       </TouchableOpacity>
     </View>
   );
