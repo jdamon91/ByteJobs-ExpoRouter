@@ -8,8 +8,10 @@ const styles = StyleSheet.create({
   },
   searchTitle: {
     fontFamily: FONT.bold,
-    fontSize: SIZES.xLarge,
+    fontSize: SIZES.large,
     color: COLORS.primary,
+    marginTop: SIZES.medium,
+    textAlign: 'center',
   },
   noOfSearchedJobs: {
     marginTop: 2,
@@ -17,9 +19,9 @@ const styles = StyleSheet.create({
     fontSize: SIZES.small,
     color: COLORS.primary,
   },
-  loaderContainer: {
-    marginTop: SIZES.medium,
-  },
+  loaderContainer: (searchLoader) => ({
+    marginTop: searchLoader ? SIZES.large : 0,
+  }),
   footerContainer: {
     marginTop: SIZES.small,
     justifyContent: 'center',
@@ -52,6 +54,11 @@ const styles = StyleSheet.create({
     fontFamily: FONT.bold,
     fontSize: SIZES.medium,
     color: COLORS.primary,
+  },
+  searchBarContainer: {
+    marginTop: 25,
+    width: '90%',
+    alignSelf: 'center',
   },
 });
 

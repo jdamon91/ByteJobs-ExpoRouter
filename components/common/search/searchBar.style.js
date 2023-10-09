@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
     tintColor: COLORS.white,
   },
   searchWrapper: {
-    flex: 1,
     backgroundColor: COLORS.white,
     marginRight: SIZES.small,
     justifyContent: 'center',

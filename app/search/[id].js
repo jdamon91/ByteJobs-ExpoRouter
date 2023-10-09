@@ -14,6 +14,7 @@ import { ScreenHeaderBtn, NearbyJobCard } from '../../components';
 import { COLORS, icons, SIZES } from '../../constants';
 import { RAPID_API_KEY } from '@env';
 import styles from '../../styles/search';
+import SearchBar from '../../components/common/search/SearchBar';
 
 const rapidApiKey = RAPID_API_KEY;
 
@@ -26,7 +27,10 @@ const JobSearch = () => {
   const [searchError, setSearchError] = useState(null);
   const [page, setPage] = useState(1);
 
-  const handleSearch = async () => {
+  const [searchTerm, setSearchTerm] = useState(params.id);
+  const [search, setSearch] = useState(params.id);
+
+  const handleSearch = async (query) => {
     setSearchLoader(true);
     setSearchResult([]);
 
@@ -39,7 +43,7 @@ const JobSearch = () => {
           'X-RapidAPI-Host': 'jsearch.p.rapidapi.com',
         },
         params: {
-          query: params.id,
+          query,
           page: page.toString(),
         },
       };
@@ -63,8 +67,13 @@ const JobSearch = () => {
     }
   };
 
+  const handleNewSearch = () => {
+    setSearch(searchTerm);
+    handleSearch(searchTerm);
+  };
+
   useEffect(() => {
-    handleSearch();
+    handleSearch(searchTerm);
   }, []);
 
   return (
@@ -83,6 +92,13 @@ const JobSearch = () => {
           headerTitle: '',
         }}
       />
+      <View style={styles.searchBarContainer}>
+        <SearchBar
+          searchTerm={searchTerm}
+          handleClick={handleNewSearch}
+          setSearchTerm={setSearchTerm}
+        />
+      </View>
 
       <FlatList
         data={searchResult}
@@ -97,10 +113,11 @@ const JobSearch = () => {
         ListHeaderComponent={() => (
           <>
             <View style={styles.container}>
-              <Text style={styles.searchTitle}>{params.id}</Text>
-              <Text style={styles.noOfSearchedJobs}>Job Opportunities</Text>
+              <Text style={styles.searchTitle}>
+                {search ? `Search results for "${search}"` : ''}
+              </Text>
             </View>
-            <View style={styles.loaderContainer}>
+            <View style={styles.loaderContainer(searchLoader)}>
               {searchLoader ? (
                 <ActivityIndicator size="large" color={COLORS.primary} />
               ) : (
