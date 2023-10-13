@@ -15,7 +15,7 @@ const Nearbyjobs = () => {
   });
 
   const onShowAllPress = () => {
-    router.push('/search/React Native developer');
+    router.push('/search/Nearby jobs');
   };
 
   return (

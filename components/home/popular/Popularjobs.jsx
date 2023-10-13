@@ -28,7 +28,7 @@ const Popularjobs = () => {
   };
 
   const onShowAllPress = () => {
-    router.push('/search/React developer');
+    router.push('/search/Popular jobs');
   };
 
   return (
