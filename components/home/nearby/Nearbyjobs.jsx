@@ -14,11 +14,15 @@ const Nearbyjobs = () => {
     num_pages: '1',
   });
 
+  const onShowAllPress = () => {
+    router.push('/search/React Native developer');
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Nearby jobs</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onShowAllPress}>
           <Text style={styles.headerBtn}>Show all</Text>
         </TouchableOpacity>
       </View>

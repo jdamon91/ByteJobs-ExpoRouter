@@ -27,11 +27,15 @@ const Popularjobs = () => {
     setSelectedJob(item.job_id);
   };
 
+  const onShowAllPress = () => {
+    router.push('/search/React developer');
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Popular jobs</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onShowAllPress}>
           <Text style={styles.headerBtn}>Show all</Text>
         </TouchableOpacity>
       </View>
