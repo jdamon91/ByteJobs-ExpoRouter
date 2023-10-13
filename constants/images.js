@@ -1,5 +1,7 @@
 import profile from '../assets/images/kemal.jpg';
 import robot from '../assets/images/robot.png';
+import robot2 from '../assets/images/robot2.png';
+import loadingRobot from '../assets/images/loading-animation.json';
 import javascript from '../assets/icons/javascript.png';
 import go from '../assets/icons/go.png';
 import python from '../assets/icons/python.png';
@@ -12,6 +14,8 @@ import ruby from '../assets/icons/rails.png';
 export default {
   profile,
   robot,
+  robot2,
+  loadingRobot,
 };
 
 export const languages = [
