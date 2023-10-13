@@ -34,17 +34,17 @@ const styles = StyleSheet.create({
     left: 67,
     top: -8,
   },
-  tab: (activeJobType, item) => ({
+  tab: {
     paddingVertical: SIZES.small / 2,
     paddingHorizontal: SIZES.small,
     borderRadius: SIZES.medium,
     borderWidth: 1,
-    borderColor: activeJobType === item ? COLORS.primary : COLORS.gray2,
-  }),
-  tabText: (activeJobType, item) => ({
+    borderColor: COLORS.primary,
+  },
+  tabText: {
     fontFamily: FONT.medium,
-    color: activeJobType === item ? COLORS.primary : COLORS.gray2,
-  }),
+    color: COLORS.primary,
+  },
 });
 
 export default styles;
