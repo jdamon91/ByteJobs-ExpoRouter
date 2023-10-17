@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { Stack, useRouter, useSearchParams } from 'expo-router';
+import { Stack, useGlobalSearchParams, useRouter } from 'expo-router';
 import { Text, SafeAreaView } from 'react-native';
 import axios from 'axios';
 
@@ -15,11 +15,12 @@ import { COLORS, icons, SIZES } from '../../constants';
 import { RAPID_API_KEY } from '@env';
 import styles from '../../styles/search';
 import SearchBar from '../../components/common/search/SearchBar';
+import Placeholder from '../../components/search/placeholder/Placeholder';
 
 const rapidApiKey = RAPID_API_KEY;
 
 const JobSearch = () => {
-  const params = useSearchParams();
+  const params = useGlobalSearchParams();
   const router = useRouter();
 
   const [searchResult, setSearchResult] = useState([]);
@@ -92,68 +93,80 @@ const JobSearch = () => {
           headerTitle: '',
         }}
       />
-      <View style={styles.searchBarContainer}>
-        <SearchBar
-          searchTerm={searchTerm}
-          handleClick={handleNewSearch}
-          setSearchTerm={setSearchTerm}
-        />
-      </View>
 
-      <FlatList
-        data={searchResult}
-        renderItem={({ item }) => (
-          <NearbyJobCard
-            job={item}
-            handleNavigate={() => router.push(`/job-details/${item.job_id}`)}
-          />
-        )}
-        keyExtractor={(item) => item.job_id}
-        contentContainerStyle={{ padding: SIZES.medium, rowGap: SIZES.medium }}
-        ListHeaderComponent={() => (
-          <>
-            <View style={styles.container}>
-              <Text style={styles.searchTitle}>
-                {search ? `Search results for "${search}"` : ''}
-              </Text>
-            </View>
-            <View style={styles.loaderContainer(searchLoader)}>
-              {searchLoader ? (
-                <ActivityIndicator size="large" color={COLORS.primary} />
-              ) : (
-                searchError && <Text>Oops something went wrong</Text>
-              )}
-            </View>
-          </>
-        )}
-        ListFooterComponent={() => (
-          <View style={styles.footerContainer}>
-            <TouchableOpacity
-              style={styles.paginationButton}
-              onPress={() => handlePagination('left')}
-            >
-              <Image
-                source={icons.chevronLeft}
-                style={styles.paginationImage}
-                resizeMode="contain"
-              />
-            </TouchableOpacity>
-            <View style={styles.paginationTextBox}>
-              <Text style={styles.paginationText}>{page}</Text>
-            </View>
-            <TouchableOpacity
-              style={styles.paginationButton}
-              onPress={() => handlePagination('right')}
-            >
-              <Image
-                source={icons.chevronRight}
-                style={styles.paginationImage}
-                resizeMode="contain"
-              />
-            </TouchableOpacity>
+      {searchResult.length === 0 && <Placeholder />}
+
+      {searchResult.length > 0 && (
+        <>
+          <View style={styles.searchBarContainer}>
+            <SearchBar
+              searchTerm={searchTerm}
+              handleClick={handleNewSearch}
+              setSearchTerm={setSearchTerm}
+            />
           </View>
-        )}
-      />
+
+          <FlatList
+            data={searchResult}
+            renderItem={({ item }) => (
+              <NearbyJobCard
+                job={item}
+                handleNavigate={() =>
+                  router.push(`/job-details/${item.job_id}`)
+                }
+              />
+            )}
+            keyExtractor={(item) => item.job_id}
+            contentContainerStyle={{
+              padding: SIZES.medium,
+              rowGap: SIZES.medium,
+            }}
+            ListHeaderComponent={() => (
+              <>
+                <View style={styles.container}>
+                  <Text style={styles.searchTitle}>
+                    {search ? `Search results for "${search}"` : ''}
+                  </Text>
+                </View>
+                <View style={styles.loaderContainer(searchLoader)}>
+                  {searchLoader ? (
+                    <ActivityIndicator size="large" color={COLORS.primary} />
+                  ) : (
+                    searchError && <Text>Oops something went wrong</Text>
+                  )}
+                </View>
+              </>
+            )}
+            ListFooterComponent={() => (
+              <View style={styles.footerContainer}>
+                <TouchableOpacity
+                  style={styles.paginationButton}
+                  onPress={() => handlePagination('left')}
+                >
+                  <Image
+                    source={icons.chevronLeft}
+                    style={styles.paginationImage}
+                    resizeMode="contain"
+                  />
+                </TouchableOpacity>
+                <View style={styles.paginationTextBox}>
+                  <Text style={styles.paginationText}>{page}</Text>
+                </View>
+                <TouchableOpacity
+                  style={styles.paginationButton}
+                  onPress={() => handlePagination('right')}
+                >
+                  <Image
+                    source={icons.chevronRight}
+                    style={styles.paginationImage}
+                    resizeMode="contain"
+                  />
+                </TouchableOpacity>
+              </View>
+            )}
+          />
+        </>
+      )}
     </SafeAreaView>
   );
 };

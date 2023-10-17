@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { View, Text, TouchableOpacity, Image, FlatList } from 'react-native';
 import { useRouter } from 'expo-router';
 
@@ -11,7 +12,6 @@ const jobTypes = ['Full-time', 'Part-time', 'Contractor'];
 
 const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
   const router = useRouter();
-  const [activeJobType, setActiveJobType] = useState('Full-time');
   const [modalVisible, setModalVisible] = useState(true);
 
   useEffect(() => {
@@ -47,10 +47,7 @@ const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
           renderItem={({ item }) => (
             <TouchableOpacity
               style={styles.tab}
-              onPress={() => {
-                setActiveJobType(item);
-                router.push(`/search/${item}`);
-              }}
+              onPress={() => router.push(`/search/${item}`)}
             >
               <Text style={styles.tabText}>{item}</Text>
             </TouchableOpacity>
@@ -62,6 +59,12 @@ const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
       </View>
     </View>
   );
+};
+
+Welcome.propTypes = {
+  searchTerm: PropTypes.string.isRequired,
+  setSearchTerm: PropTypes.func.isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default Welcome;
