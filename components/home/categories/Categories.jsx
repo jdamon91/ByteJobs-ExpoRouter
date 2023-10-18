@@ -5,6 +5,7 @@ import { useRouter } from 'expo-router';
 import styles from './categories.style';
 import { languages } from '../../../constants/images';
 import CategoryCard from '../../common/cards/categories/CategoryCard';
+import { SIZES } from '../../../constants';
 
 const Categories = () => {
   const router = useRouter();
@@ -20,6 +21,7 @@ const Categories = () => {
         data={languages}
         horizontal
         style={styles.cardsContainer}
+        contentContainerStyle={{ paddingHorizontal: SIZES.medium }}
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => (
           <CategoryCard

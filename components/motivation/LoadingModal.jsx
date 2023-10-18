@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Modal, Text, View, Animated } from 'react-native';
+import PropTypes from 'prop-types';
 
 import styles from './loadingModal.style';
 import LottieView from 'lottie-react-native';
@@ -31,12 +32,7 @@ const LoadingModal = ({ visible }) => {
   }, []);
 
   return (
-    <Modal
-      animationType="fade"
-      transparent={true}
-      visible={visible}
-      onRequestClose={() => setModalVisible(!modalVisible)}
-    >
+    <Modal animationType="fade" transparent={true} visible={visible}>
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
           <Animated.View
@@ -59,6 +55,10 @@ const LoadingModal = ({ visible }) => {
       </View>
     </Modal>
   );
+};
+
+LoadingModal.propTypes = {
+  visible: PropTypes.bool,
 };
 
 export default LoadingModal;

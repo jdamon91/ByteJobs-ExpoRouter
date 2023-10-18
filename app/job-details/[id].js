@@ -1,11 +1,10 @@
-import { Stack, useRouter, useSearchParams } from 'expo-router';
+import { Stack, useGlobalSearchParams, useRouter } from 'expo-router';
 import { useCallback, useState } from 'react';
-import {
+import React, {
   View,
   Text,
   SafeAreaView,
   ScrollView,
-  ActivityIndicator,
   RefreshControl,
 } from 'react-native';
 
@@ -17,19 +16,30 @@ import {
   ScreenHeaderBtn,
   Specifics,
 } from '../../components';
-import { COLORS, icons, SIZES } from '../../constants';
-import useFetch from '../../hook/useFetch';
-import Placeholder from '../../components/jobdetails/placeholder/Placeholder';
+import { COLORS, SIZES, icons } from '../../constants';
+import useJobFetch from '../../hook/useJobFetch';
+import Placeholder from '../../components/jobDetails/placeholder/Placeholder';
+import useJobContactFetch from '../../hook/useJobContactFetch';
+import Contacts from '../../components/jobDetails/contacts/Contacts';
 
-const tabs = ['About', 'Qualifications', 'Responsibilities'];
+const tabs = ['About', 'Qualifications', 'Responsibilities', 'Contacts'];
 
 const JobDetails = () => {
-  const params = useSearchParams();
+  const params = useGlobalSearchParams();
   const router = useRouter();
 
-  const { data, isLoading, error, refetch } = useFetch('job-details', {
+  const { data, isLoading, error, refetch } = useJobFetch('job-details', {
     job_id: params.id,
   });
+
+  const {
+    data: contactsData,
+    isLoading: isContactsLoading,
+    refetch: refetchContacts,
+  } = useJobContactFetch('wsgr.com');
+
+  const isDataLoading = isLoading || isContactsLoading;
+  const areErrors = error;
 
   const [activeTab, setActiveTab] = useState(tabs[0]);
   const [refreshing, setRefreshing] = useState(false);
@@ -37,6 +47,7 @@ const JobDetails = () => {
   const onRefresh = useCallback(() => {
     setRefreshing(true);
     refetch();
+    refetchContacts();
     setRefreshing(false);
   }, []);
 
@@ -63,6 +74,9 @@ const JobDetails = () => {
           />
         );
 
+      case 'Contacts':
+        return <Contacts title="Contacts" data={contactsData} />;
+
       default:
         return null;
     }
@@ -82,9 +96,9 @@ const JobDetails = () => {
               handlePress={() => router.back()}
             />
           ),
-          headerRight: () => (
-            <ScreenHeaderBtn iconUrl={icons.share} dimension="60%" />
-          ),
+          // headerRight: () => (
+          //   <ScreenHeaderBtn iconUrl={icons.share} dimension="60%" />
+          // ),
           headerTitle: '',
         }}
       />
@@ -96,14 +110,14 @@ const JobDetails = () => {
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }
         >
-          {isLoading ? (
+          {isDataLoading ? (
             <Placeholder />
-          ) : error ? (
+          ) : areErrors ? (
             <Text>Something went wrong</Text>
           ) : data.length === 0 ? (
             <Text>No data available</Text>
           ) : (
-            <View style={{ padding: SIZES.medium, paddingBottom: 100 }}>
+            <View style={{ paddingBottom: 100 }}>
               <Company
                 companyLogo={data[0].employer_logo}
                 jobTitle={data[0].job_title}
@@ -116,8 +130,9 @@ const JobDetails = () => {
                 activeTab={activeTab}
                 setActiveTab={setActiveTab}
               />
-
-              {displayTabContent()}
+              <View style={{ paddingHorizontal: SIZES.medium }}>
+                {displayTabContent()}
+              </View>
             </View>
           )}
         </ScrollView>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'expo-router';
 import {
   View,
@@ -8,10 +8,10 @@ import {
   ActivityIndicator,
 } from 'react-native';
 
-import styles from './popularjobs.style';
+import styles from './popularJobs.style';
 import { COLORS, SIZES } from '../../../constants';
 import PopularJobCard from '../../common/cards/popular/PopularJobCard';
-import useFetch from '../../../hook/useFetch';
+import useFetch from '../../../hook/useJobFetch';
 
 const Popularjobs = () => {
   const router = useRouter();
@@ -56,7 +56,10 @@ const Popularjobs = () => {
               />
             )}
             keyExtractor={(item) => item.job_id}
-            contentContainerStyle={{ columnGap: SIZES.medium }}
+            contentContainerStyle={{
+              columnGap: SIZES.medium,
+              paddingHorizontal: SIZES.medium,
+            }}
             horizontal
             showsHorizontalScrollIndicator={false}
           />

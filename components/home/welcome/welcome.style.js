@@ -6,9 +6,11 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     paddingTop: SIZES.large,
+    paddingHorizontal: SIZES.medium,
   },
   searchContainer: {
     marginVertical: MARGIN.xSmall,
+    paddingHorizontal: SIZES.medium,
   },
   welcomeTitle: {
     fontFamily: FONT.bold,
@@ -27,6 +29,7 @@ const styles = StyleSheet.create({
   tabsContainer: {
     width: '100%',
     marginTop: SIZES.medium,
+    paddingHorizontal: SIZES.medium,
   },
   robotIcon: {
     height: 100,

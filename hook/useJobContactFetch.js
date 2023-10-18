@@ -4,19 +4,22 @@ import { RAPID_API_KEY } from '@env';
 
 const rapidApiKey = RAPID_API_KEY;
 
-const useFetch = (endpoint, query) => {
+const useJobContactFetch = (query) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const options = {
     method: 'GET',
-    url: `https://jsearch.p.rapidapi.com/${endpoint}`,
+    url: 'https://website-contacts-scraper.p.rapidapi.com/scrape-contacts',
     headers: {
       'X-RapidAPI-Key': rapidApiKey,
-      'X-RapidAPI-Host': 'jsearch.p.rapidapi.com',
+      'X-RapidAPI-Host': 'website-contacts-scraper.p.rapidapi.com',
     },
-    params: { ...query },
+    params: {
+      query,
+      match_email_domain: 'true',
+    },
   };
 
   const fetchData = async () => {
@@ -46,4 +49,4 @@ const useFetch = (endpoint, query) => {
   return { data, isLoading, error, refetch };
 };
 
-export default useFetch;
+export default useJobContactFetch;

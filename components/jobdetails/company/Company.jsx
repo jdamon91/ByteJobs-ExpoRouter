@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
+import PropTypes from 'prop-types';
 
 import styles from './company.style';
 import { icons } from '../../../constants';
@@ -37,6 +38,13 @@ const Company = ({ companyLogo, jobTitle, companyName, location }) => {
       </View>
     </View>
   );
+};
+
+Company.propTypes = {
+  companyLogo: PropTypes.string,
+  jobTitle: PropTypes.string,
+  companyName: PropTypes.string,
+  location: PropTypes.string,
 };
 
 export default Company;

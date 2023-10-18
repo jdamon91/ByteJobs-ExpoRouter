@@ -1,6 +1,7 @@
-import { View, Text } from "react-native";
+import React, { View, Text } from 'react-native';
+import PropTypes from 'prop-types';
 
-import styles from "./specifics.style";
+import styles from './specifics.style';
 
 const Specifics = ({ title, points }) => {
   return (
@@ -17,6 +18,11 @@ const Specifics = ({ title, points }) => {
       </View>
     </View>
   );
+};
+
+Specifics.propTypes = {
+  title: PropTypes.string.isRequired,
+  points: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default Specifics;

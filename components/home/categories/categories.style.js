@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     fontSize: SIZES.large,
     fontFamily: FONT.medium,
     color: COLORS.primary,
+    marginLeft: SIZES.medium,
   },
   cardsContainer: {
     marginTop: SIZES.medium,
