@@ -1,6 +1,6 @@
 import profile from '../assets/images/kemal.jpg';
 import robot from '../assets/images/robot.png';
-import robot2 from '../assets/images/robot2.png';
+import robotMagGlass from '../assets/images/robot-mag-glass.png';
 import loadingRobot from '../assets/images/loading-animation.json';
 import javascript from '../assets/icons/javascript.png';
 import go from '../assets/icons/go.png';
@@ -11,10 +11,21 @@ import java from '../assets/icons/java.png';
 import php from '../assets/icons/php.png';
 import ruby from '../assets/icons/rails.png';
 
+import tiktok from '../assets/icons/tiktok.png';
+import facebook from '../assets/icons/facebook.png';
+import github from '../assets/icons/github.png';
+import instagram from '../assets/icons/instagram.png';
+import linkedin from '../assets/icons/linkedin.png';
+import twitter from '../assets/icons/twitter.png';
+import youtube from '../assets/icons/youtube.png';
+import snapchat from '../assets/icons/snapchat.png';
+import pinterest from '../assets/icons/pinterest.png';
+import domain from '../assets/icons/website.png';
+
 export default {
   profile,
   robot,
-  robot2,
+  robotMagGlass,
   loadingRobot,
 };
 
@@ -60,3 +71,16 @@ export const languages = [
     image: ruby,
   },
 ];
+
+export const socialIcons = {
+  tiktok,
+  facebook,
+  github,
+  instagram,
+  linkedin,
+  twitter,
+  youtube,
+  snapchat,
+  pinterest,
+  domain,
+};

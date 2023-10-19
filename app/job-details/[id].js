@@ -1,5 +1,5 @@
 import { Stack, useGlobalSearchParams, useRouter } from 'expo-router';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import React, {
   View,
   Text,
@@ -22,7 +22,7 @@ import Placeholder from '../../components/jobDetails/placeholder/Placeholder';
 import useJobContactFetch from '../../hook/useJobContactFetch';
 import Contacts from '../../components/jobDetails/contacts/Contacts';
 
-const tabs = ['About', 'Qualifications', 'Responsibilities', 'Contacts'];
+const tabs = ['About', 'Qualifications', 'Responsibilities', 'Connections'];
 
 const JobDetails = () => {
   const params = useGlobalSearchParams();
@@ -32,13 +32,26 @@ const JobDetails = () => {
     job_id: params.id,
   });
 
+  const employerWebsite = data[0]?.employer_website;
+  console.log(employerWebsite);
+
   const {
     data: contactsData,
     isLoading: isContactsLoading,
     refetch: refetchContacts,
-  } = useJobContactFetch('wsgr.com');
+    error: contactsError,
+  } = useJobContactFetch(employerWebsite);
+
+  console.log('contacts data', contactsData, contactsError);
+
+  useEffect(() => {
+    if (employerWebsite) {
+      refetchContacts();
+    }
+  }, [employerWebsite]);
 
   const isDataLoading = isLoading || isContactsLoading;
+
   const areErrors = error;
 
   const [activeTab, setActiveTab] = useState(tabs[0]);
@@ -74,8 +87,8 @@ const JobDetails = () => {
           />
         );
 
-      case 'Contacts':
-        return <Contacts title="Contacts" data={contactsData} />;
+      case 'Connections':
+        return <Contacts title="Contacts" data={contactsData[0]} />;
 
       default:
         return null;

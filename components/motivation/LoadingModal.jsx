@@ -46,7 +46,7 @@ const LoadingModal = ({ visible }) => {
                 source={require('../../assets/images/loading-animation.json')}
                 autoPlay
                 loop
-                style={{ height: 250, width: 250 }}
+                style={{ height: 275, width: 275 }}
               />
             </View>
             <Text style={styles.modalSubText}>Loading your next job...</Text>

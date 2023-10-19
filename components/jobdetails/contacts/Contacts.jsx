@@ -1,39 +1,72 @@
-import React, { View, Text, TouchableOpacity } from 'react-native';
+import React, { View, TouchableOpacity, Image, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import * as Linking from 'expo-linking';
 
+import { socialIcons } from '../../../constants/images';
 import styles from './contacts.style';
 
-const Contacts = ({ title, data }) => {
-  const { domain } = data[0];
+const listedContacts = [
+  'domain',
+  'facebook',
+  'instagram',
+  'linkedin',
+  'github',
+  'pinterest',
+  'snapchat',
+  'twitter',
+  'youtube',
+  'tiktok',
+];
 
-  const renderLink = (url) => {
+const Contacts = ({ data }) => {
+  const renderLink = (name, url) => {
+    console.log(name, url);
+    const formatUrlWithHttps = (url) => {
+      if (!url.startsWith('http')) {
+        return `https://${url}`;
+      }
+
+      return url;
+    };
+
     return (
-      <TouchableOpacity onPress={() => Linking.openURL(`https://${url}`)}>
-        <Text style={styles.text}>{url}</Text>
+      <TouchableOpacity
+        onPress={() => Linking.openURL(formatUrlWithHttps(url))}
+        style={styles.iconContainer}
+      >
+        <Image source={socialIcons[name]} style={styles.icon} />
       </TouchableOpacity>
     );
   };
 
+  if (!data) return null;
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{title}:</Text>
-      {domain && renderLink(domain)}
-      <View style={styles.pointsContainer}>
-        {/* {points.map((item, index) => (
-          <View style={styles.pointWrapper} key={item + index}>
-            <View style={styles.pointDot} />
-            <Text style={styles.pointText}>{item}</Text>
-          </View>
-        ))} */}
+      <Text style={styles.title}>Connect & Engage</Text>
+      <Text style={styles.subTitle}>
+        Learn more about this company and give yourself a better chance at
+        getting hired!
+      </Text>
+      <View style={styles.linksContainer}>
+        {Object.keys(data).map((key) => {
+          if (listedContacts.includes(key)) {
+            if (!data[key]) return null;
+
+            return (
+              <View style={styles.pointContainer} key={key}>
+                {renderLink(key, data[key])}
+              </View>
+            );
+          }
+        })}
       </View>
     </View>
   );
 };
 
 Contacts.propTypes = {
-  title: PropTypes.string.isRequired,
-  // points: PropTypes.arrayOf(PropTypes.string).isRequired,
+  data: PropTypes.object.isRequired,
 };
 
 export default Contacts;

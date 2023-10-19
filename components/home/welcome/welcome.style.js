@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   },
   welcomeTitle: {
     fontFamily: FONT.bold,
-    fontSize: SIZES.xxLarge,
+    fontSize: SIZES.xLarge,
     color: COLORS.primary,
     marginBottom: MARGIN.xSmall,
   },
@@ -32,10 +32,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: SIZES.medium,
   },
   robotIcon: {
-    height: 100,
+    height: 90,
     position: 'absolute',
-    left: 67,
-    top: -8,
+    left: 90,
+    top: 0,
   },
   tab: {
     paddingVertical: SIZES.small / 2,

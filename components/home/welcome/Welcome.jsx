@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, TouchableOpacity, Image, FlatList } from 'react-native';
+import { View, Text, TouchableOpacity, FlatList } from 'react-native';
 import { useRouter } from 'expo-router';
 
 import styles from './welcome.style';
-import { SIZES, images } from '../../../constants';
+import { SIZES } from '../../../constants';
 import SearchBar from '../../common/search/SearchBar';
 import LoadingModal from '../../motivation/LoadingModal';
+import Robot from '../../common/animation/Robot';
 
 const jobTypes = ['Full-time', 'Part-time', 'Contractor'];
 
@@ -23,17 +24,13 @@ const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
   return (
     <View>
       <View style={styles.container}>
-        <Text style={styles.welcomeTitle}>Your Dream Job</Text>
+        <Text style={styles.welcomeTitle}>Chasing the Dream Job?</Text>
         <Text style={styles.welcomeMessage}>
-          is a lot closer than you think!
+          Hope you&apos;re wearing good shoes!
         </Text>
       </View>
       <LoadingModal visible={modalVisible} />
-      <Image
-        source={images.robot}
-        style={styles.robotIcon}
-        resizeMode="contain"
-      />
+      <Robot imageStyle={styles.robotIcon} />
       <View style={styles.searchContainer}>
         <SearchBar
           searchTerm={searchTerm}

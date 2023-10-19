@@ -1,40 +1,51 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
-import { COLORS, FONT, SIZES } from "../../../constants";
+import { COLORS, FONT, SIZES } from '../../../constants';
 
 const styles = StyleSheet.create({
   container: {
     marginTop: SIZES.large,
-    backgroundColor: "#FFF",
+    backgroundColor: '#FFF',
     borderRadius: SIZES.medium,
     padding: SIZES.medium,
   },
   title: {
-    fontSize: SIZES.large,
+    fontSize: SIZES.xLarge,
     color: COLORS.primary,
     fontFamily: FONT.bold,
+    textAlign: 'center',
+    marginTop: SIZES.medium,
+    marginBottom: SIZES.small,
+    letterSpacing: 1,
   },
-  pointsContainer: {
-    marginVertical: SIZES.small,
+  icon: {
+    width: 40,
+    height: 40,
   },
-  pointWrapper: {
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-    marginVertical: SIZES.small / 1.25,
+  iconContainer: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: COLORS.lightBlue,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  pointDot: {
-    width: 6,
-    height: 6,
-    borderRadius: 6,
-    backgroundColor: COLORS.gray2,
-    marginTop: 6,
+  linksContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: SIZES.small,
+    flexWrap: 'wrap',
+    columnGap: SIZES.xLarge,
+    rowGap: SIZES.xLarge,
+    paddingBottom: SIZES.xLarge,
   },
-  pointText: {
-    fontSize: SIZES.medium - 2,
+  subTitle: {
+    fontSize: SIZES.medium,
     color: COLORS.gray,
     fontFamily: FONT.regular,
-    marginLeft: SIZES.small,
+    textAlign: 'center',
+    marginBottom: SIZES.medium,
   },
 });
 

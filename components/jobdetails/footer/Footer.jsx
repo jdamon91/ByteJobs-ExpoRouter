@@ -1,4 +1,5 @@
-import { View, Text, TouchableOpacity, Linking } from 'react-native';
+import React, { View, Text, TouchableOpacity, Linking } from 'react-native';
+import PropTypes from 'prop-types';
 
 import styles from './footer.style';
 
@@ -16,6 +17,11 @@ const Footer = ({ url, isLoading }) => {
       </TouchableOpacity>
     </View>
   );
+};
+
+Footer.propTypes = {
+  url: PropTypes.string.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 export default Footer;

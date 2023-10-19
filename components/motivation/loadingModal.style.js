@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 import { COLORS, FONT, SIZES } from '../../constants';
 
 const styles = StyleSheet.create({
@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#00000030',
   },
   modalView: {
-    margin: 20,
     backgroundColor: '#FFF',
     borderRadius: 20,
     alignItems: 'center',
@@ -21,10 +20,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
-    paddingVertical: 30,
-    paddingHorizontal: 10,
     justifyContent: 'center',
-    alignItems: 'center',
+    flex: 1,
+    width: Dimensions.get('window').width,
   },
   animationContainer: {
     backgroundColor: '#fff',
@@ -53,16 +51,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     paddingHorizontal: 20,
     fontFamily: FONT.regular,
-    fontSize: SIZES.medium,
+    fontSize: SIZES.large,
     color: COLORS.primary,
   },
   modalSubText: {
     textAlign: 'center',
     paddingHorizontal: 20,
     fontFamily: FONT.regular,
-    fontSize: SIZES.medium,
+    fontSize: SIZES.large,
     color: COLORS.primary,
-    marginTop: 10,
+    marginTop: 25,
   },
 });
 
