@@ -22,7 +22,8 @@ import Placeholder from '../../components/jobDetails/placeholder/Placeholder';
 import useJobContactFetch from '../../hook/useJobContactFetch';
 import Contacts from '../../components/jobDetails/contacts/Contacts';
 
-const tabs = ['About', 'Qualifications', 'Responsibilities', 'Connections'];
+const tabs = ['Overview', 'Skills Needed', 'Responsibilities', 'Connections'];
+const tabEmojis = ['📝', '📚', '👨‍💻', '👥'];
 
 const JobDetails = () => {
   const params = useGlobalSearchParams();
@@ -33,16 +34,12 @@ const JobDetails = () => {
   });
 
   const employerWebsite = data[0]?.employer_website;
-  console.log(employerWebsite);
 
   const {
     data: contactsData,
     isLoading: isContactsLoading,
     refetch: refetchContacts,
-    error: contactsError,
   } = useJobContactFetch(employerWebsite);
-
-  console.log('contacts data', contactsData, contactsError);
 
   useEffect(() => {
     if (employerWebsite) {
@@ -66,15 +63,15 @@ const JobDetails = () => {
 
   const displayTabContent = () => {
     switch (activeTab) {
-      case 'Qualifications':
+      case 'Skills Needed':
         return (
           <Specifics
-            title="Qualifications"
+            title="Skills Needed"
             points={data[0].job_highlights?.Qualifications ?? ['N/A']}
           />
         );
 
-      case 'About':
+      case 'Overview':
         return (
           <JobAbout info={data[0].job_description ?? 'No data provided'} />
         );
@@ -140,6 +137,7 @@ const JobDetails = () => {
 
               <JobTabs
                 tabs={tabs}
+                tabEmojis={tabEmojis}
                 activeTab={activeTab}
                 setActiveTab={setActiveTab}
               />

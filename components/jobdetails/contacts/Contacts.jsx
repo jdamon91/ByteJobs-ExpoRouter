@@ -20,7 +20,6 @@ const listedContacts = [
 
 const Contacts = ({ data }) => {
   const renderLink = (name, url) => {
-    console.log(name, url);
     const formatUrlWithHttps = (url) => {
       if (!url.startsWith('http')) {
         return `https://${url}`;
