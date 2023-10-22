@@ -1,4 +1,4 @@
-### ByteJobs
+# ByteJobs
 <p>ByteJobs is a React Native Expo Mobile Application built for techies looking to break into the tech industry. Utilizing the latest file-based Expo Router this project hones in on some of the capabilities and features it offers while emphasizing smooth animations and a modernized UI approach.</p>
 
 <p><b>Github Repo:</b> https://github.com/jdamon91/ByteJobs-ExpoRouter
