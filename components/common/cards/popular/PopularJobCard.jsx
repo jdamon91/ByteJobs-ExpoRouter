@@ -1,7 +1,8 @@
 import React, { View, Text, TouchableOpacity, Image } from 'react-native';
 import PropTypes from 'prop-types';
 
-import styles from './popularjobcard.style';
+import Bookmark from '../../bookmark/Bookmark';
+import styles from './popularJobCard.style';
 import { checkImageURL } from '../../../../utils';
 
 const PopularJobCard = ({ item, handleCardPress }) => {
@@ -10,6 +11,7 @@ const PopularJobCard = ({ item, handleCardPress }) => {
       style={styles.container}
       onPress={() => handleCardPress(item)}
     >
+      <Bookmark saved={false} containerStyle={styles.bookmark} />
       <TouchableOpacity style={styles.logoContainer}>
         <Image
           source={{

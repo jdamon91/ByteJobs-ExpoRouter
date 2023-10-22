@@ -56,6 +56,11 @@ const styles = StyleSheet.create({
     fontFamily: FONT.regular,
     color: '#B3AEC6',
   },
+  bookmark: {
+    position: 'absolute',
+    top: SIZES.xLarge,
+    right: SIZES.medium,
+  },
 });
 
 export default styles;

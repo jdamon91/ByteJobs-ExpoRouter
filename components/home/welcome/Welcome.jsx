@@ -9,8 +9,14 @@ import SearchBar from '../../common/search/SearchBar';
 import LoadingModal from '../../motivation/LoadingModal';
 import Robot from '../../common/animation/Robot';
 
-const jobTypes = ['Full-time', 'Part-time', 'Contractor'];
-const jobTypeEmojis = ['👨‍💻', '👩‍💻', '👨‍💼'];
+const jobTypeEmojis = ['👨‍💼', '👩‍💼', '👨‍💻', '👩‍💻', '🏠'];
+const jobTypes = [
+  'Full-time',
+  'Part-time',
+  'Remote',
+  'Contractor',
+  'Freelance',
+];
 
 const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
   const router = useRouter();
@@ -42,6 +48,7 @@ const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
       <View style={styles.tabsContainer}>
         <FlatList
           data={jobTypes}
+          showsHorizontalScrollIndicator={false}
           renderItem={({ item }) => (
             <TouchableOpacity
               style={styles.tab}
