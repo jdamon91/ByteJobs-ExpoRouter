@@ -23,7 +23,12 @@ Use [`expo-router`](https://expo.github.io/router) to build native navigation us
 npx create-expo-app -e with-router
 ```
 
-<p>Update/Create the RAPID API env key by logging into your RapidAPI account, adding the JSearch API: https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch/ and Website Contacts Scraper API: https://rapidapi.com/letscrape-6bRBa3QguO5/api/website-contacts-scraper/ and adding it to the project's env file.</p>
+<p>
+  1. Update/Create the RAPID API env key by logging into your RapidAPI account
+  2. Add the JSearch API: https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch/ 
+  3. And the Website Contacts Scraper API: https://rapidapi.com/letscrape-6bRBa3QguO5/api/website-contacts-scraper/ 
+  4. Create an env file in the project and copy/paste the RAPID_API key variable into it
+</p>
 
 ## 📝 Notes
 
