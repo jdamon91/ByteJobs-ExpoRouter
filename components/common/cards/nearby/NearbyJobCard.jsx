@@ -1,4 +1,5 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import React, { View, Text, TouchableOpacity, Image } from 'react-native';
+import PropTypes from 'prop-types';
 
 import styles from './nearbyjobcard.style';
 import { checkImageURL } from '../../../../utils';
@@ -27,6 +28,11 @@ const NearbyJobCard = ({ job, handleNavigate }) => {
       </View>
     </TouchableOpacity>
   );
+};
+
+NearbyJobCard.propTypes = {
+  job: PropTypes.object.isRequired,
+  handleNavigate: PropTypes.func.isRequired,
 };
 
 export default NearbyJobCard;

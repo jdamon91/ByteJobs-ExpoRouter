@@ -1,4 +1,5 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import React, { TouchableOpacity, Image } from 'react-native';
+import PropTypes from 'prop-types';
 
 import styles from './categoryCard.style';
 
@@ -15,6 +16,12 @@ const CategoryCard = ({ item, handleCardPress, containerStyle }) => {
       />
     </TouchableOpacity>
   );
+};
+
+CategoryCard.propTypes = {
+  item: PropTypes.object.isRequired,
+  handleCardPress: PropTypes.func.isRequired,
+  containerStyle: PropTypes.object,
 };
 
 export default CategoryCard;

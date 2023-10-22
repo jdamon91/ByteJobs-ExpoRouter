@@ -1,9 +1,10 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import React, { View, Text, TouchableOpacity, Image } from 'react-native';
+import PropTypes from 'prop-types';
 
 import styles from './popularjobcard.style';
 import { checkImageURL } from '../../../../utils';
 
-const PopularJobCard = ({ item, selectedJob, handleCardPress }) => {
+const PopularJobCard = ({ item, handleCardPress }) => {
   return (
     <TouchableOpacity
       style={styles.container}
@@ -35,6 +36,11 @@ const PopularJobCard = ({ item, selectedJob, handleCardPress }) => {
       </View>
     </TouchableOpacity>
   );
+};
+
+PopularJobCard.propTypes = {
+  item: PropTypes.object.isRequired,
+  handleCardPress: PropTypes.func.isRequired,
 };
 
 export default PopularJobCard;

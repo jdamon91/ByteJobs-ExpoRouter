@@ -10,7 +10,9 @@ const styles = StyleSheet.create({
     borderRadius: SIZES.medium,
     justifyContent: 'space-between',
     ...SHADOWS.medium,
-    shadowColor: COLORS.white,
+    shadowColor: COLORS.gray,
+    marginBottom: 8,
+    marginRight: 5,
   },
   logoContainer: {
     width: 50,
