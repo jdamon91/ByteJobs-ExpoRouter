@@ -10,6 +10,7 @@ import LoadingModal from '../../motivation/LoadingModal';
 import Robot from '../../common/animation/Robot';
 
 const jobTypes = ['Full-time', 'Part-time', 'Contractor'];
+const jobTypeEmojis = ['👨‍💻', '👩‍💻', '👨‍💼'];
 
 const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
   const router = useRouter();
@@ -46,11 +47,14 @@ const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
               style={styles.tab}
               onPress={() => router.push(`/search/${item}`)}
             >
+              <Text style={styles.tabEmoji}>
+                {jobTypeEmojis[jobTypes.indexOf(item)]}
+              </Text>
               <Text style={styles.tabText}>{item}</Text>
             </TouchableOpacity>
           )}
           keyExtractor={(item) => item}
-          contentContainerStyle={{ columnGap: SIZES.small }}
+          contentContainerStyle={{ columnGap: SIZES.small, marginLeft: 20 }}
           horizontal
         />
       </View>

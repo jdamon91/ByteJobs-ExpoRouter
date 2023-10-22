@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
   tabsContainer: {
     width: '100%',
     marginTop: SIZES.medium,
-    paddingHorizontal: SIZES.medium,
   },
   robotIcon: {
     height: 90,
@@ -43,6 +42,7 @@ const styles = StyleSheet.create({
     borderRadius: SIZES.medium,
     borderWidth: 1,
     borderColor: COLORS.primary,
+    flexDirection: 'row',
   },
   tabText: {
     fontFamily: FONT.medium,

@@ -1,6 +1,7 @@
 import profile from '../assets/images/kemal.jpg';
 import robot from '../assets/images/robot.png';
 import robotMagGlass from '../assets/images/robot-mag-glass.png';
+import warehouseBg from '../assets/images/warehouse-bg.png';
 import loadingRobot from '../assets/images/loading-animation.json';
 import javascript from '../assets/icons/javascript.png';
 import go from '../assets/icons/go.png';
@@ -26,6 +27,7 @@ export default {
   profile,
   robot,
   robotMagGlass,
+  warehouseBg,
   loadingRobot,
 };
 
