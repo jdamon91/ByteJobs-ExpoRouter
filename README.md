@@ -24,10 +24,12 @@ npx create-expo-app -e with-router
 ```
 
 <p>
-  1. Update/Create the RAPID API env key by logging into your RapidAPI account
-  2. Add the JSearch API: https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch/ 
-  3. And the Website Contacts Scraper API: https://rapidapi.com/letscrape-6bRBa3QguO5/api/website-contacts-scraper/ 
-  4. Create an env file in the project and copy/paste the RAPID_API key variable into it
+  <ol>
+    <li>Update/Create the RAPID API env key by logging into your RapidAPI account</li>
+     <li>Add the JSearch API: https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch/</li>
+     <li>And the Website Contacts Scraper API: https://rapidapi.com/letscrape-6bRBa3QguO5/api/website-contacts-scraper/</li>
+     <li> Create an env file in the project and copy/paste the RAPID_API key variable into it</li>
+  </ol>
 </p>
 
 ## 📝 Notes
