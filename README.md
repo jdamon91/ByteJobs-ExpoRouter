@@ -4,8 +4,6 @@
 <p><b>Github Repo:</b> https://github.com/jdamon91/ByteJobs-ExpoRouter
 <p><b>Stack:</b> Expo, Expo Router, React Native</p>
 
-https://github.com/jdamon91/ByteJobs-ExpoRouter/assets/67440753/02630ab1-4018-441d-aa0d-6b1d8d0e3782
-
 <b>Screenshots:</b>
 <p>
   <img src="https://github.com/jdamon91/jdamon91/assets/67440753/8fd0c60e-ff63-4c3a-ab94-f70e7aece91c" height="500"/>
