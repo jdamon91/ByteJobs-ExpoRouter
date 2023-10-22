@@ -14,8 +14,8 @@ const styles = StyleSheet.create({
     height: 45,
   },
   searchBtnImage: {
-    width: '45%',
-    height: '45%',
+    width: '55%',
+    height: '55%',
     tintColor: COLORS.primary,
   },
   searchWrapper: {
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   searchBtn: {
     width: 45,
     height: '100%',
-    backgroundColor: COLORS.secondary,
+    backgroundColor: COLORS.tertiary,
     borderTopRightRadius: SIZES.medium,
     borderBottomRightRadius: SIZES.medium,
     justifyContent: 'center',

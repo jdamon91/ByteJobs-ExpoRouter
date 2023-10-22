@@ -4,7 +4,6 @@ import { View, Text, TouchableOpacity, FlatList } from 'react-native';
 import { useRouter } from 'expo-router';
 
 import styles from './welcome.style';
-import { SIZES } from '../../../constants';
 import SearchBar from '../../common/search/SearchBar';
 import LoadingModal from '../../motivation/LoadingModal';
 import Robot from '../../common/animation/Robot';
@@ -61,7 +60,7 @@ const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
             </TouchableOpacity>
           )}
           keyExtractor={(item) => item}
-          contentContainerStyle={{ columnGap: SIZES.small, marginLeft: 20 }}
+          contentContainerStyle={styles.contentContainer}
           horizontal
         />
       </View>

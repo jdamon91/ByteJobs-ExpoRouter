@@ -12,6 +12,7 @@ import styles from './popularJobs.style';
 import { COLORS, SIZES } from '../../../constants';
 import PopularJobCard from '../../common/cards/popular/PopularJobCard';
 import useJobFetch from '../../../hook/useJobFetch';
+import { MotiView } from 'moti';
 
 const Popularjobs = () => {
   const router = useRouter();
@@ -46,23 +47,29 @@ const Popularjobs = () => {
         ) : error ? (
           <Text>Something went wrong</Text>
         ) : (
-          <FlatList
-            data={data}
-            renderItem={({ item }) => (
-              <PopularJobCard
-                item={item}
-                selectedJob={selectedJob}
-                handleCardPress={handleCardPress}
-              />
-            )}
-            keyExtractor={(item) => item.job_id}
-            contentContainerStyle={{
-              columnGap: SIZES.medium,
-              paddingHorizontal: SIZES.medium,
-            }}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-          />
+          <MotiView
+            from={{ opacity: 0, right: -200 }}
+            animate={{ opacity: 1, right: 0 }}
+            transition={{ type: 'timing', duration: 2000, delay: 1000 }}
+          >
+            <FlatList
+              data={data}
+              renderItem={({ item }) => (
+                <PopularJobCard
+                  item={item}
+                  selectedJob={selectedJob}
+                  handleCardPress={handleCardPress}
+                />
+              )}
+              keyExtractor={(item) => item.job_id}
+              contentContainerStyle={{
+                columnGap: SIZES.medium,
+                paddingHorizontal: SIZES.medium,
+              }}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+            />
+          </MotiView>
         )}
       </View>
     </View>

@@ -48,6 +48,11 @@ const styles = StyleSheet.create({
     fontFamily: FONT.medium,
     color: COLORS.primary,
   },
+  contentContainer: {
+    columnGap: SIZES.small,
+    marginLeft: 20,
+    paddingRight: 25,
+  },
 });
 
 export default styles;

@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     shadowColor: COLORS.gray,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 8,
+    marginVertical: 5,
     marginRight: 5,
   },
   logoImage: {

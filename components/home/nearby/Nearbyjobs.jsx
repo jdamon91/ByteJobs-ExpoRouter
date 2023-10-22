@@ -6,6 +6,7 @@ import styles from './nearbyJobs.style';
 import { COLORS } from '../../../constants';
 import NearbyJobCard from '../../common/cards/nearby/NearbyJobCard';
 import useJobFetch from '../../../hook/useJobFetch';
+import { MotiView } from 'moti';
 
 const Nearbyjobs = () => {
   const router = useRouter();
@@ -33,13 +34,19 @@ const Nearbyjobs = () => {
         ) : error ? (
           <Text>Something went wrong</Text>
         ) : (
-          data?.map((job) => (
-            <NearbyJobCard
-              job={job}
-              key={`nearby-job-${job.job_id}`}
-              handleNavigate={() => router.push(`/job-details/${job.job_id}`)}
-            />
-          ))
+          <MotiView
+            from={{ opacity: 0, bottom: -200 }}
+            animate={{ opacity: 1, bottom: 0 }}
+            transition={{ type: 'timing', duration: 2000, delay: 1000 }}
+          >
+            {data?.map((job) => (
+              <NearbyJobCard
+                job={job}
+                key={`nearby-job-${job.job_id}`}
+                handleNavigate={() => router.push(`/job-details/${job.job_id}`)}
+              />
+            ))}
+          </MotiView>
         )}
       </View>
     </View>

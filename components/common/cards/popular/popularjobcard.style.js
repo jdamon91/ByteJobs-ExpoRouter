@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     ...SHADOWS.medium,
     shadowColor: COLORS.gray,
-    marginBottom: 8,
+    marginVertical: 5,
     marginRight: 5,
   },
   logoContainer: {

@@ -6,6 +6,7 @@ import {
   ScrollView,
   View,
 } from 'react-native';
+import { MotiView } from 'moti';
 import { Stack, useRouter } from 'expo-router';
 
 import { COLORS, icons, images } from '../constants';
@@ -17,7 +18,6 @@ import {
   Welcome,
 } from '../components';
 import { FadeInView } from '../components/common/animation/views/AnimatedViews';
-import { MotiView } from 'moti';
 
 const Home = () => {
   const router = useRouter();
