@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     ...SHADOWS.medium,
     shadowColor: COLORS.gray,
-    marginVertical: 8,
+    marginVertical: 2,
   },
   logoContainer: {
     width: 50,

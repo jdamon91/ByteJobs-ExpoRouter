@@ -39,13 +39,17 @@ const Nearbyjobs = () => {
             animate={{ opacity: 1, bottom: 0 }}
             transition={{ type: 'timing', duration: 2000, delay: 1000 }}
           >
-            {data?.map((job) => (
-              <NearbyJobCard
-                job={job}
-                key={`nearby-job-${job.job_id}`}
-                handleNavigate={() => router.push(`/job-details/${job.job_id}`)}
-              />
-            ))}
+            <View style={{ rowGap: 16 }}>
+              {data?.map((job) => (
+                <NearbyJobCard
+                  job={job}
+                  key={`nearby-job-${job.job_id}`}
+                  handleNavigate={() =>
+                    router.push(`/job-details/${job.job_id}`)
+                  }
+                />
+              ))}
+            </View>
           </MotiView>
         )}
       </View>
